@@ -2,4 +2,12 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  {
+    'phelipetls/vim-hugo',
+  },
+  {
+    'robertbasic/vim-hugo-helper',
+    config = function() end,
+  },
+}
