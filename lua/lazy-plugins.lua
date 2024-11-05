@@ -35,8 +35,6 @@ require('lazy').setup({
 
   require 'kickstart/plugins/cmp',
 
-  --require 'custom/plugins/catppuccin',
-
   require 'kickstart/plugins/todo-comments',
 
   require 'kickstart/plugins/mini',
