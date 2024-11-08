@@ -1,3 +1,4 @@
+local target_path
 return {
   {
     'mbbill/undotree',
@@ -9,6 +10,9 @@ return {
       -- Set undotree_DiffCommand to 'FC' only on Windows
       if vim.loop.os_uname().sysname == 'Windows_NT' then
         vim.g.undotree_DiffCommand = 'FC'
+        target_path = vim.fn.expand '~' .. '\\.undodir'
+      else
+        target_path = vim.fn.expand '~/.undodir'
       end
 
       if vim.fn.has 'persistent_undo' == 1 then
