@@ -31,6 +31,24 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Python dap commands
+
+vim.keymap.set('n', '<leader>tc', function()
+  if vim.bo.filetype == 'python' then
+    require('dap-python').test_method()
+  end
+end, {
+  desc = 'Python Run Test [C]lass',
+})
+
+vim.keymap.set('n', '<leader>tm', function()
+  if vim.bo.filetype == 'python' then
+    require('dap-python').test_method()
+  end
+end, {
+  desc = 'Python Run Single Test [M]ethod',
+})
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
