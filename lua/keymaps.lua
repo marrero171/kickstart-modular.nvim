@@ -49,6 +49,11 @@ end, {
   desc = 'Python Run Single Test [M]ethod',
 })
 
+-- Git blame command
+vim.keymap.set('n', '<leader>cb', '<cmd>:GitBlameToggle<CR>', {
+  desc = 'Toggle [B]lame Line',
+})
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
