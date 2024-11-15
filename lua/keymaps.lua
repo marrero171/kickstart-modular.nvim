@@ -49,14 +49,6 @@ end, {
   desc = 'Python Run Single Test [M]ethod',
 })
 
--- Git blame commands
-vim.keymap.set('n', '<leader>cb', '<cmd>:GitBlameToggle<CR>', {
-  desc = 'Toggle [B]lame Line',
-})
-
-vim.keymap.set('n', '<leader>cl', '<cmd>:GitBlameOpenCommitURL<CR>', {
-  desc = 'Open Commit URL',
-})
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
