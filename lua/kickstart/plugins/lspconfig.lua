@@ -243,6 +243,7 @@ return {
         'mypy',
         'flake8',
         'pylint',
+        'ruff',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
