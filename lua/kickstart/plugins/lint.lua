@@ -46,6 +46,7 @@ return {
           'flake8',
           'mypy',
           'pylint',
+          'ruff',
         },
       }
       -- Create autocommand which carries out the actual linting
