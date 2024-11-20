@@ -48,6 +48,9 @@ return {
           'pylint',
           'ruff',
         },
+        htmldjango = {
+          'djlint',
+        },
       }
       -- Create autocommand which carries out the actual linting
       -- on the specified events.

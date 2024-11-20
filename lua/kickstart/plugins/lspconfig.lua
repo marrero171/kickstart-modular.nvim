@@ -208,6 +208,12 @@ return {
             }),
           },
         },
+        html = {
+          filetypes = { 'html', 'htmldjango' },
+        },
+        jinja_lsp = {
+          filetypes = { 'htmldjango' },
+        },
         --
 
         lua_ls = {
