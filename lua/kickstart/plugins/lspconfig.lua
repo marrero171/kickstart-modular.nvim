@@ -250,6 +250,9 @@ return {
         'flake8',
         'pylint',
         'ruff',
+        'djlint',
+        'html',
+        'jinja_lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
