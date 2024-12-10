@@ -216,6 +216,9 @@ return {
         jinja_lsp = {
           filetypes = { 'htmldjango' },
         },
+        zk = {
+          filetypes = { 'markdown' },
+        },
         --
 
         lua_ls = {
