@@ -111,6 +111,7 @@ if vim.g.neovide == true then
 end
 if vim.g.vscode then
   -- VSCode extension
+  require 'vscode-config.keymaps'
 else
   -- ordinary Neovim
   -- [[ Setting options ]]
