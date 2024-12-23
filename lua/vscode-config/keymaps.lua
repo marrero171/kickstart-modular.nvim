@@ -42,8 +42,13 @@ vscmap({ 'n', 'v' }, '<leader>cn', 'notifications.clearAll')
 vscmap({ 'n', 'v' }, '<leader>cp', 'workbench.action.showCommands')
 vscmap({ 'n', 'v' }, '<leader>cb', 'gitlens.toggleFileBlame')
 vscmap({ 'n', 'v' }, '<leader>fd', 'editor.action.formatDocument')
-
 vscmap({ 'n', 'v' }, '<leader>ws', 'workbench.action.gotoSymbol')
+
+-- Bookmarks keymaps
+vscmap({ 'n', 'v' }, '<leader>ba', 'bookmarks.toggle')
+vscmap({ 'n', 'v' }, '<leader>bs', 'bookmarks.list')
+vscmap({ 'n', 'v' }, '<leader>bf', 'workbench.view.extension.bookmarks')
+
 -- Searching keymaps
 vscmap({ 'n', 'v' }, '<leader>sf', 'workbench.action.quickOpen')
 vscmap({ 'n', 'v' }, '<leader>sg', 'workbench.action.findInFiles')
