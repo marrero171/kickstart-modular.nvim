@@ -35,7 +35,7 @@ end
 
 -- General keymaps
 vscmap({ 'n', 'v' }, '<leader>t', 'workbench.action.terminal.toggleTerminal')
-vscmap({ 'n', 'v' }, '<leader>b', 'editor.debug.action.toggleBreakpoint')
+vscmap({ 'n', 'v' }, '<leader>bb', 'editor.debug.action.toggleBreakpoint')
 vscmap({ 'n', 'v' }, '<leader>q', 'editor.action.quickFix')
 vscmap({ 'n', 'v' }, '<leader>sp', 'workbench.actions.view.problems')
 vscmap({ 'n', 'v' }, '<leader>cn', 'notifications.clearAll')
