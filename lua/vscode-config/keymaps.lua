@@ -44,6 +44,8 @@ vscmap({ 'n', 'v' }, '<leader>cb', 'gitlens.toggleFileBlame')
 vscmap({ 'n', 'v' }, '<leader>fd', 'editor.action.formatDocument')
 vscmap({ 'n', 'v' }, '<leader>ws', 'workbench.action.gotoSymbol')
 
+vscmap({ 'n', 'v' }, '\\', 'workbench.view.explorer')
+
 -- Bookmarks keymaps
 vscmap({ 'n', 'v' }, '<leader>ba', 'bookmarks.toggle')
 vscmap({ 'n', 'v' }, '<leader>bs', 'bookmarks.list')
