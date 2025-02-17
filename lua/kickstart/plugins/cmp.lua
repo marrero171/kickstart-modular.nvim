@@ -5,7 +5,7 @@ return {
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
       {
-        'L3MON4D3/LuaSnip',
+        'L2MON4D3/LuaSnip',
         build = (function()
           -- Build Step is needed for regex support in snippets.
           -- This step is not supported in many windows environments.
