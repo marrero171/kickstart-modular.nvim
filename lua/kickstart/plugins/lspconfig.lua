@@ -207,10 +207,25 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      local util = require 'lspconfig/util'
+      local path = util.path
       local servers = {
-        -- clangd = {},
+        clangd = {
+          capabilities = {
+            signatureHelpProvider = false,
+          },
+        },
+        intelephense = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {
+          disableOrganizeImports = true,
+          capabilities = capabilities,
+          filetypes = { 'python' },
+          settings = {
+            default_venv_path = path.join(vim.env.HOME, '.virtual_envs', 'nvim-venv', 'Scripts', 'python.exe'), -- If Windows
+          },
+        },
+        -- pylsp = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -218,7 +233,23 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {
+          filetypes = { 'js' },
+          handlers = {
+            ['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+              virtual_text = true,
+            }),
+          },
+        },
+        html = {
+          filetypes = { 'html', 'htmldjango' },
+        },
+        jinja_lsp = {
+          filetypes = { 'htmldjango' },
+        },
+        zk = {
+          filetypes = { 'markdown' },
+        },
         --
 
         lua_ls = {
@@ -253,6 +284,14 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'pyright', -- Python stuff below
+        'mypy',
+        'flake8',
+        'pylint',
+        'ruff',
+        'djlint',
+        'html',
+        'jinja_lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

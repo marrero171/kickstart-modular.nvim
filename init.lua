@@ -91,19 +91,43 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
--- [[ Setting options ]]
-require 'options'
+-- Check if the system is Windows, then use powershell if it is
+-- if vim.loop.os_uname().sysname == 'Windows_NT' then
+--   -- Set up PowerShell as the default shell in Neovim
+--   vim.opt.shell = vim.fn.executable 'pwsh' == 1 and 'pwsh' or 'powershell'
+--   vim.opt.shellcmdflag =
+--     "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';Remove-Alias -Force -ErrorAction SilentlyContinue tee;"
+--   vim.opt.shellredir = "2>&1 | %%{ '$_' } | Out-File %s; exit $LastExitCode"
+--   vim.opt.shellpipe = "2>&1 | %%{ '$_' } | tee %s; exit $LastExitCode"
+--   vim.opt.shellquote = ''
+--   vim.opt.shellxquote = ''
+-- end
+if vim.g.vscode then
+  -- VSCode extension
+  require 'vscode-config.keymaps'
+else
+  -- ordinary Neovim
+  -- [[ Setting options ]]
+  require 'options'
 
--- [[ Basic Keymaps ]]
-require 'keymaps'
+  -- [[ Basic Keymaps ]]
+  require 'keymaps'
 
--- [[ Install `lazy.nvim` plugin manager ]]
-require 'lazy-bootstrap'
+  -- [[ Install `lazy.nvim` plugin manager ]]
+  require 'lazy-bootstrap'
 
--- [[ Configure and install plugins ]]
-require 'lazy-plugins'
+  -- [[ Configure and install plugins ]]
+  require 'lazy-plugins'
 
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+  -- The line beneath this is called `modeline`. See `:help modeline`
+  -- vim: ts=2 sts=2 sw=2 et
+
+  require 'godotlsp'
+end
+if vim.g.neovide == true then
+  -- Stuff for neovide
+  require 'neovide-config.keymaps'
+  require 'neovide-config.options'
+end

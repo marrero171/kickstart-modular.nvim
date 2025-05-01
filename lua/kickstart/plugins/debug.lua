@@ -5,6 +5,11 @@
 -- Primarily focused on configuring the debugger for Go, but can
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
+local pythonPath = '/home/marrero/.virtualenvs/debugpy/bin/python'
+
+if vim.loop.os_uname().sysname == 'Windows_NT' then
+  pythonPath = vim.fn.expand '~' .. '\\.virtualenvs\\debugpy\\Scripts\\python.exe'
+end
 
 return {
   -- NOTE: Yes, you can install new plugins here!
@@ -23,6 +28,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mfussenegger/nvim-dap-python',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -95,6 +101,9 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        -- C++ stuff
+        'clangd',
+        'codelldb',
       },
     }
 
@@ -144,5 +153,9 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+    -- python config
+    require('dap-python').setup(pythonPath)
+    -- If using the above, then `/path/to/venv/bin/python -m debugpy --version`
+    -- must work in the shell
   end,
 }
