@@ -2,7 +2,7 @@
 -- GDscript LSP setup for Godot
 if vim.loop.os_uname().sysname == 'Windows_NT' then
   -- Windows-specific setup
-  local port = os.getenv 'GDScript_Port' or '6005'
+  local port = os.getenv 'GDScript_Port' or 6005
   local cmd = { 'ncat', '127.0.0.1', port }
   local pipe = [[\\.\pipe\godot.pipe]]
 
@@ -27,7 +27,7 @@ if vim.loop.os_uname().sysname == 'Windows_NT' then
   })
 else
   -- Non-Windows setup
-  local port = os.getenv 'GDScript_Port' or '6005'
+  local port = os.getenv 'GDScript_Port' or 6005
   local cmd = vim.lsp.rpc.connect('127.0.0.1', port)
   local pipe = '/path/to/godot.pipe' -- Adjust path as necessary
 
