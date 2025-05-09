@@ -212,7 +212,7 @@ return {
       local servers = {
         clangd = {
           capabilities = {
-            signatureHelpProvider = false,
+            signatureHelpProvider = true,
           },
         },
         intelephense = {},
