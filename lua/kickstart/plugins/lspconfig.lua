@@ -210,6 +210,7 @@ return {
       local util = require 'lspconfig/util'
       local path = util.path
       local servers = {
+        jdtls = {},
         clangd = {
           capabilities = {
             signatureHelpProvider = true,
