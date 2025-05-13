@@ -31,6 +31,7 @@ return {
       end)
 
       -- Toggle previous & next buffers stored within Harpoon list
+      -- TODO: These keys are in use by Konsole
       vim.keymap.set('n', '<C-S-P>', function()
         harpoon:list():prev()
       end)
