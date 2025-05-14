@@ -61,6 +61,13 @@ return {
       desc = 'Debug: Step Out',
     },
     {
+      '<F4>',
+      function()
+        require('dap').pause()
+      end,
+      desc = 'Debug: Pause',
+    },
+    {
       '<leader>b',
       function()
         require('dap').toggle_breakpoint()
