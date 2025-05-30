@@ -8,7 +8,46 @@ return {
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       require('catppuccin').setup {
-        transparent_background = false,
+        integrations = {
+          telescope = {
+            enabled = true,
+            -- style = "nvchad"
+          },
+          which_key = true,
+          cmp = true,
+          gitsigns = true,
+          treesitter = true,
+          notify = false,
+          blink_cmp = true,
+          dashboard = true,
+          neotree = true,
+          dap_ui = true,
+          native_lsp = {
+            enabled = true,
+            virtual_text = {
+              errors = { 'italic' },
+              hints = { 'italic' },
+              warnings = { 'italic' },
+              information = { 'italic' },
+              ok = { 'italic' },
+            },
+            underlines = {
+              errors = { 'underline' },
+              hints = { 'underline' },
+              warnings = { 'underline' },
+              information = { 'underline' },
+              ok = { 'underline' },
+            },
+            inlay_hints = {
+              background = true,
+            },
+          },
+          mini = {
+            enabled = false,
+            indentscope_color = '',
+          },
+          transparent_background = false,
+        },
       }
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
