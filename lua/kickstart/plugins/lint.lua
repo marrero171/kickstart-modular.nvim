@@ -42,6 +42,9 @@ return {
       -- lint.linters_by_ft['text'] = nil
 
       lint.linters_by_ft = {
+        gdscript = {
+          'gdlint',
+        },
         python = {
           'flake8',
           'mypy',

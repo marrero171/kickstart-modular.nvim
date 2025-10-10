@@ -111,8 +111,6 @@ else
   -- [[ Configure and install plugins ]]
   require 'lazy-plugins'
 
-  require 'custom.gdscript'
-  require 'custom.godot-dap'
   -- The line beneath this is called `modeline`. See `:help modeline`
   -- vim: ts=2 sts=2 sw=2 et
 end

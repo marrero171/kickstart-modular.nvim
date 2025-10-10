@@ -295,6 +295,11 @@ return {
         'jinja_lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      -- Sneak in the Godot LSP connection setup
+      require('lspconfig').gdscript.setup {
+        cmd = { 'ncat', 'localhost', '6005' },
+        filetypes = { 'gdscript' },
+      }
 
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
@@ -313,4 +318,5 @@ return {
     end,
   },
 }
+
 -- vim: ts=2 sts=2 sw=2 et
